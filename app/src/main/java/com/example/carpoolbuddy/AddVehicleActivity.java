@@ -65,10 +65,10 @@ public class AddVehicleActivity extends AppCompatActivity {
                 Vehicle newVehicle = new Vehicle(vcOwner, vModel, vCapa, vID, open, vType, vPrice);
 
                 firebase.collection("Vehicle").add(newVehicle);
-                startActivity(new Intent(this, VehicleInfoActivity.class));
             } else {
                 Toast.makeText(getApplicationContext(), "PLEASE LOG IN FIRST", Toast.LENGTH_SHORT).show();
             }
+            startActivity(new Intent(this, VehicleInfoActivity.class));
 
         }
 

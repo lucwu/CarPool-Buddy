@@ -64,10 +64,11 @@ public class VehicleInfoActivity extends AppCompatActivity implements VehicleAda
                 .get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                if (task.isSuccessful()) {
+                if (task.isSuccessful())
+                {
                     for (DocumentSnapshot ds : task.getResult().getDocuments()) {
-                        Vehicle getVehicle = ds.toObject(Vehicle.class);
-                        vehiclesList.add(getVehicle);
+                        Vehicle vehicle = ds.toObject(Vehicle.class);
+                        vehiclesList.add(vehicle);
                     }
 
                     for (Vehicle eachVehicle : vehiclesList) {
@@ -85,8 +86,7 @@ public class VehicleInfoActivity extends AppCompatActivity implements VehicleAda
                     myAdapter.notifyDataSetChanged();
 
                 } else {
-                    Toast.makeText(getApplicationContext(), "you don't have any vehicle yet," +
-                            "go add some", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "you don't have any vehicle yet", Toast.LENGTH_SHORT).show();
                 }
 
             }

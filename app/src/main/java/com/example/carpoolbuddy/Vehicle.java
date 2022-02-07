@@ -12,6 +12,8 @@ public class Vehicle implements Serializable {
 
     private boolean open;
 
+    public Vehicle(){};
+
     public String getOwner() {
         return owner;
     }
